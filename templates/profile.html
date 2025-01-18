@@ -132,10 +132,150 @@
                 <hr/>
                 <input type ="submit" value = "Update Profile" class ="btn btn-success"> 
 
-            </nav>
             <nav class="tabpage" id="tabpage_2">
                 <p>Chlaymdia and Gonorrhea</p>
-                form goes here
+                <form method="POST" action="{{ url_for('update_chlamydia_gonorrhea') }}">
+                    <!-- Screening Details -->
+                    <h4>Screening Information</h4>
+                    <div class="form-group">
+                        <label for="date_of_screening">Date of Screening:</label>
+                        <input type="datetime-local" id="date_of_screening" name="date_of_screening" value="{{ screening.date_of_screening }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="health_care_provider">Health Care Provider:</label>
+                        <input type="text" id="health_care_provider" name="health_care_provider" value="{{ screening.health_care_provider }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="reporter_name">Reporter Name:</label>
+                        <input type="text" id="reporter_name" name="reporter_name" value="{{ screening.reporter_name }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="reporter_contact">Reporter Contact:</label>
+                        <input type="text" id="reporter_contact" name="reporter_contact" value="{{ screening.reporter_contact }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="sexual_partner_gender">Sexual Partner Gender:</label>
+                        <input type="text" id="sexual_partner_gender" name="sexual_partner_gender" value="{{ screening.sexual_partner_gender }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="sexual_partner_gender_identity">Sexual Partner Gender Identity:</label>
+                        <input type="text" id="sexual_partner_gender_identity" name="sexual_partner_gender_identity" value="{{ screening.sexual_partner_gender_identity }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Previous HIV Screening:</label>
+                        <label><input type="radio" id="hiv_screening_yes" name="precious_hiv_screening" value="yes" {% if screening.previous_HIV_screening == 'yes' %}checked{% endif %}> Yes</label>
+                        <label><input type="radio" id="hiv_screening_no" name="precious_hiv_screening" value="no" {% if screening.previous_HIV_screening == 'no' %}checked{% endif %}> No</label>
+                        <label><input type="radio" id="hiv_screening_unknown" name="precious_hiv_screening" value="unknown" {% if screening.previous_HIV_screening == 'unknown' %}checked{% endif %}> Unknown</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="precious_hiv_screening_date">Screening Date:</label>
+                        <input type="date" id="precious_hiv_screening_date" name="precious_hiv_screening_date" value="{{ screening.previous_HIV_screening_date }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Screening Result:</label>
+                        <label><input type="radio" id="hiv_screening_result_positive" name="precious_hiv_screening_result" value="positive" {% if screening.previous_HIV_screening_result == 'positive' %}checked{% endif %}> Positive</label>
+                        <label><input type="radio" id="hiv_screening_result_negative" name="precious_hiv_screening_result" value="negative" {% if screening.previous_HIV_screening_result == 'negative' %}checked{% endif %}> Negative</label>
+                        <label><input type="radio" id="hiv_screening_result_unknown" name="precious_hiv_screening_result" value="unknown" {% if screening.previous_HIV_screening_result == 'unknown' %}checked{% endif %}> Unknown</label>
+                    </div>
+                    <div class="form-group">
+                    <label for="reason_for_testing">Reason for Testing:</label>
+                    <select id="reason_for_testing" name="reason_for_testing">
+                        <option value="" {% if not screening.reason_for_testing %}selected{% endif %}>Select a reason</option>
+                        <option value="routine" {% if screening.reason_for_testing == 'routine' %}selected{% endif %}>Routine</option>
+                        <option value="symptomatic" {% if screening.reason_for_testing == 'symptomatic' %}selected{% endif %}>Symptomatic</option>
+                        <option value="exposure" {% if screening.reason_for_testing == 'exposure' %}selected{% endif %}>Exposure</option>
+                        <option value="follow-up" {% if screening.reason_for_testing == 'follow-up' %}selected{% endif %}>Follow-up</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="screening_type">Screening Type:</label>
+                    <input type="text" id="screening_type" name="screening_type" value="{{ screening.screening_type }}">
+                </div>
+                <div class="form-group">
+                    <label for="site_of_sample_collection">Site of Sample Collection:</label>
+                    <select id="site_of_sample_collection" name="site_of_sample_collection">
+                        <option value="" {% if not screening.site_of_sample_collection %}selected{% endif %}>Select site</option>
+                        <option value="cervix" {% if screening.site_of_sample_collection == 'cervix' %}selected{% endif %}>Cervix</option>
+                        <option value="urethra" {% if screening.site_of_sample_collection == 'urethra' %}selected{% endif %}>Urethra</option>
+                        <option value="pharynx" {% if screening.site_of_sample_collection == 'pharynx' %}selected{% endif %}>Pharynx</option>
+                        <option value="rectum" {% if screening.site_of_sample_collection == 'rectum' %}selected{% endif %}>Rectum</option>
+                        <option value="vaginal" {% if screening.site_of_sample_collection == 'vaginal' %}selected{% endif %}>Vaginal</option>
+                        <option value="other" {% if screening.site_of_sample_collection == 'other' %}selected{% endif %}>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sample_collection_date">Sample Collection Date:</label>
+                    <input type="date" id="sample_collection_date" name="sample_collection_date" value="{{ screening.sample_collection_date }}">
+                </div>
+                <div class="form-group">
+                    <label for="screening_result">Screening Result:</label>
+                    <input type="text" id="screening_result" name="screening_result" value="{{ screening.screening_result }}">
+                </div>
+                <div class="form-group">
+                    <label for="screening_notes">Screening Notes:</label>
+                    <textarea id="screening_notes" name="screening_notes">{{ screening.screening_notes  }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="diagnosis">Diagnosis:</label>
+                    <select id="diagnosis" name="diagnosis">
+                        <option value="" {% if not screening.diagnosis %}selected{% endif %}>Select diagnosis</option>
+                        <option value="negative" {% if screening.diagnosis == 'negative' %}selected{% endif %}>Negative</option>
+                        <option value="positive" {% if screening.diagnosis == 'positive' %}selected{% endif %}>Positive</option>
+                        <option value="pending" {% if screening.diagnosis == 'pending' %}selected{% endif %}>Pending</option>
+                    </select>
+                </div>
+                
+                    <!-- Treatment Section -->
+                    <h4>Treatment Information</h4>
+                    <div class="form-group">
+                        <label for="date_of_treatment">Date of Treatment:</label>
+                        <input type="date" id="date_of_treatment" name="date_of_treatment" value="{{ treatment.date_of_treatment }}" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="treatment_type">Treatment Type:</label>
+                        <input type="text" id="treatment_type" name="treatment_type" value="{{ treatment.treatment_type }}" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="treatment_plan">Treatment Plan:</label>
+                        <textarea id="treatment_plan" name="treatment_plan" class="form-control">{{ treatment.treatment_plan }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="treatment_notes">Treatment Notes:</label>
+                        <textarea id="treatment_notes" name="treatment_notes" class="form-control">{{ treatment.treatment_notes }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="treatment_result">Treatment Result:</label>
+                        <input type="text" id="treatment_result" name="treatment_result" value="{{ treatment.treatment_result }}" class="form-control">
+                    </div>
+                
+                    <!-- Partner Management Details -->
+                    <h4>Partner Management</h4>
+                    <div class="form-group">
+                        <label for="date_of_partner_management">Date of Partner Management:</label>
+                        <input type="date" id="date_of_partner_management" name="date_of_partner_management" value="{{ partner_management.date_of_partner_management }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="partner_management_type">Partner Management Type:</label>
+                        <input type="text" id="partner_management_type" name="partner_management_type" value="{{ partner_management.partner_management_type }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="partner_management_plan">Partner Management Plan:</label>
+                        <textarea id="partner_management_plan" name="partner_management_plan">{{ partner_management.partner_management_plan }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="partner_management_notes">Partner Management Notes:</label>
+                        <textarea id="partner_management_notes" name="partner_management_notes" >{{ partner_management.partner_management_notes }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="partner_management_result">Partner Management Result:</label>
+                        <input type="text" id="partner_management_result" name="partner_management_result" value="{{ partner_management.partner_management_result }}">
+                    </div>
+                
+                    <!-- Submit Button -->
+                    <div> 
+                        <button type="submit">Save</button>
+                    </div>
+                </form>
             
             </nav>
             <nav class="tabpage" id="tabpage_3">
