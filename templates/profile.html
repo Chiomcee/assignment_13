@@ -136,30 +136,30 @@
                 <p>Chlaymdia and Gonorrhea</p>
                 <form method="POST" action="{{ url_for('update_chlamydia_gonorrhea') }}">
                     <!-- Screening Details -->
-                    <h4>Screening Information</h4>
+                    <h3>Screening Information</h3>
                     <div class="form-group">
                         <label for="date_of_screening">Date of Screening:</label>
-                        <input type="datetime-local" id="date_of_screening" name="date_of_screening" value="{{ screening.date_of_screening }}">
+                        <input type="datetime-local" id="date_of_screening" name="date_of_screening" class="form-control" value="{{ screening.date_of_screening }}">
                     </div>
                     <div class="form-group">
                         <label for="health_care_provider">Health Care Provider:</label>
-                        <input type="text" id="health_care_provider" name="health_care_provider" value="{{ screening.health_care_provider }}">
+                        <input type="text" id="health_care_provider" name="health_care_provider" class="form-control" value="{{ screening.health_care_provider }}">
                     </div>
                     <div class="form-group">
                         <label for="reporter_name">Reporter Name:</label>
-                        <input type="text" id="reporter_name" name="reporter_name" value="{{ screening.reporter_name }}">
+                        <input type="text" id="reporter_name" name="reporter_name" class="form-control" value="{{ screening.reporter_name }}">
                     </div>
                     <div class="form-group">
                         <label for="reporter_contact">Reporter Contact:</label>
-                        <input type="text" id="reporter_contact" name="reporter_contact" value="{{ screening.reporter_contact }}">
+                        <input type="text" id="reporter_contact" name="reporter_contact" class="form-control" value="{{ screening.reporter_contact }}">
                     </div>
                     <div class="form-group">
                         <label for="sexual_partner_gender">Sexual Partner Gender:</label>
-                        <input type="text" id="sexual_partner_gender" name="sexual_partner_gender" value="{{ screening.sexual_partner_gender }}">
+                        <input type="text" id="sexual_partner_gender" name="sexual_partner_gender" class="form-control" value="{{ screening.sexual_partner_gender }}">
                     </div>
                     <div class="form-group">
                         <label for="sexual_partner_gender_identity">Sexual Partner Gender Identity:</label>
-                        <input type="text" id="sexual_partner_gender_identity" name="sexual_partner_gender_identity" value="{{ screening.sexual_partner_gender_identity }}">
+                        <input type="text" id="sexual_partner_gender_identity" name="sexual_partner_gender_identity" class="form-control" value="{{ screening.sexual_partner_gender_identity }}">
                     </div>
                     <div class="form-group">
                         <label>Previous HIV Screening:</label>
@@ -169,7 +169,7 @@
                     </div>
                     <div class="form-group">
                         <label for="precious_hiv_screening_date">Screening Date:</label>
-                        <input type="date" id="precious_hiv_screening_date" name="precious_hiv_screening_date" value="{{ screening.previous_HIV_screening_date }}">
+                        <input type="date" id="precious_hiv_screening_date" name="precious_hiv_screening_date" class="form-control" value="{{ screening.previous_HIV_screening_date }}">
                     </div>
                     <div class="form-group">
                         <label>Screening Result:</label>
@@ -189,7 +189,7 @@
                 </div>
                 <div class="form-group">
                     <label for="screening_type">Screening Type:</label>
-                    <input type="text" id="screening_type" name="screening_type" value="{{ screening.screening_type }}">
+                    <input type="text" id="screening_type" name="screening_type" class="form-control" value="{{ screening.screening_type }}">
                 </div>
                 <div class="form-group">
                     <label for="site_of_sample_collection">Site of Sample Collection:</label>
@@ -209,11 +209,11 @@
                 </div>
                 <div class="form-group">
                     <label for="screening_result">Screening Result:</label>
-                    <input type="text" id="screening_result" name="screening_result" value="{{ screening.screening_result }}">
+                    <input type="text" id="screening_result" name="screening_result" class="form-control" value="{{ screening.screening_result }}">
                 </div>
                 <div class="form-group">
                     <label for="screening_notes">Screening Notes:</label>
-                    <textarea id="screening_notes" name="screening_notes">{{ screening.screening_notes  }}</textarea>
+                    <textarea id="screening_notes" name="screening_notes" class="form-control">{{ screening.screening_notes  }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="diagnosis">Diagnosis:</label>
@@ -226,14 +226,14 @@
                 </div>
                 
                     <!-- Treatment Section -->
-                    <h4>Treatment Information</h4>
+                    <h3>Treatment Information</h3>
                     <div class="form-group">
                         <label for="date_of_treatment">Date of Treatment:</label>
-                        <input type="date" id="date_of_treatment" name="date_of_treatment" value="{{ treatment.date_of_treatment }}" class="form-control">
+                        <input type="date" id="date_of_treatment" name="date_of_treatment" class="form-control" value="{{ treatment.date_of_treatment }}" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="treatment_type">Treatment Type:</label>
-                        <input type="text" id="treatment_type" name="treatment_type" value="{{ treatment.treatment_type }}" class="form-control">
+                        <input type="text" id="treatment_type" name="treatment_type" class="form-control" value="{{ treatment.treatment_type }}" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="treatment_plan">Treatment Plan:</label>
@@ -245,35 +245,35 @@
                     </div>
                     <div class="form-group">
                         <label for="treatment_result">Treatment Result:</label>
-                        <input type="text" id="treatment_result" name="treatment_result" value="{{ treatment.treatment_result }}" class="form-control">
+                        <input type="text" id="treatment_result" name="treatment_result" class="form-control" value="{{ treatment.treatment_result }}" class="form-control">
                     </div>
                 
                     <!-- Partner Management Details -->
-                    <h4>Partner Management</h4>
+                    <h3>Partner Management</h3>
                     <div class="form-group">
                         <label for="date_of_partner_management">Date of Partner Management:</label>
-                        <input type="date" id="date_of_partner_management" name="date_of_partner_management" value="{{ partner_management.date_of_partner_management }}">
+                        <input type="date" id="date_of_partner_management" name="date_of_partner_management" class="form-control" value="{{ partner_management.date_of_partner_management }}">
                     </div>
                     <div class="form-group">
                         <label for="partner_management_type">Partner Management Type:</label>
-                        <input type="text" id="partner_management_type" name="partner_management_type" value="{{ partner_management.partner_management_type }}">
+                        <input type="text" id="partner_management_type" name="partner_management_type" class="form-control" value="{{ partner_management.partner_management_type }}">
                     </div>
                     <div class="form-group">
                         <label for="partner_management_plan">Partner Management Plan:</label>
-                        <textarea id="partner_management_plan" name="partner_management_plan">{{ partner_management.partner_management_plan }}</textarea>
+                        <textarea id="partner_management_plan" name="partner_management_plan" class="form-control">{{ partner_management.partner_management_plan }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="partner_management_notes">Partner Management Notes:</label>
-                        <textarea id="partner_management_notes" name="partner_management_notes" >{{ partner_management.partner_management_notes }}</textarea>
+                        <textarea id="partner_management_notes" name="partner_management_notes" class="form-control">{{ partner_management.partner_management_notes }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="partner_management_result">Partner Management Result:</label>
-                        <input type="text" id="partner_management_result" name="partner_management_result" value="{{ partner_management.partner_management_result }}">
+                        <input type="text" id="partner_management_result" name="partner_management_result" class="form-control" value="{{ partner_management.partner_management_result }}">
                     </div>
                 
                     <!-- Submit Button -->
                     <div> 
-                        <button type="submit">Save</button>
+                        <button type="submit">Update STI Record</button>
                     </div>
                 </form>
             
